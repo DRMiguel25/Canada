@@ -3,178 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ideal Vacation: Canada</title>
+    <title>Ideal Vacation: Canada's Rocky Mountains</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
         .slide {
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .slide.hidden {
+            opacity: 0;
+            transform: scale(0.98);
+        }
+        .overlay-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #10b981);
+            transition: width 0.3s ease;
         }
     </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 m-0 p-0 overflow-hidden">
 
-    <div class="bg-white rounded-xl shadow-2xl overflow-hidden max-w-5xl w-full aspect-video relative">
+    <div class="bg-white overflow-hidden w-screen h-screen relative">
 
-        <!-- SLIDE 1 -->
-        <div class="slide w-full h-full" data-slide="0">
+        <!-- Progress Bar -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-gray-200 z-50">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <!-- SLIDE 1: Title -->
+        <div class="slide active w-full h-full" data-slide="0">
             <div class="relative w-full h-full">
-                <img src="https://imgs.search.brave.com/m5hX2gnq00y6Sej1cgBEz4Ws9jqz8q2CMM8ta4Cpo94/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTYy/MzA2MzIvcGhvdG8v/ZWxrLWdyYXppbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PUI3by01eGpIRnl3/WG9IRWVWY242aVhC/RjNuLWY1bF84a1ZI/SlRubGtCcEU9"
-                     alt="Niagara Falls from above"
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1760797355/pplx_project_search_images/6809f5fd5dda16e3b8827c6cb8ca57fb5014b456.png"
+                     alt="Moraine Lake in Banff National Park"
                      class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-8">
-                    <h1 class="text-5xl md:text-6xl font-extrabold text-white">My Ideal Vacation</h1>
-                    <p class="text-2xl md:text-3xl text-teal-300 mt-4 font-semibold">The "Power & Peaceful" Canadian Escape</p>
+                <div class="absolute inset-0 overlay-gradient flex flex-col items-center justify-center text-center p-8">
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-white text-shadow mb-4">Ideal Vacation in Canada</h1>
+                    <p class="text-2xl md:text-4xl text-teal-300 font-bold text-shadow">An Unforgettable Week Through the Canadian Rockies</p>
+                    <p class="text-lg md:text-xl text-white mt-6 max-w-2xl text-shadow">Wildlife, Peace, and Breathtaking Landscapes</p>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 2 -->
-        <div class="slide w-full h-full hidden" data-slide="1">
+        <!-- SLIDE 2: Introduction -->
+        <div class="slide hidden w-full h-full" data-slide="1">
             <div class="flex flex-col lg:flex-row h-full">
-                <div class="w-full lg:w-1/2 p-10 flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold text-gray-800">Introduction: Why Canada?</h2>
-                    <p class="text-lg text-gray-700 mt-4 leading-relaxed">
-                        We pick Canada because it offers the perfect mix of wild, awesome power (like Niagara Falls) and a truly peaceful atmosphere.
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-blue-50 to-teal-50 overflow-y-auto">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Why Canada is Your Perfect Destination</h2>
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+                        Canada offers a unique combination of impressive wildlife and landscapes of absolute peace. The Canadian Rockies are home to ancient glaciers, vibrant turquoise lakes, and extraordinary fauna including grizzly bears, moose, bighorn sheep, and eagles.
                     </p>
-                    <p class="text-lg text-gray-700 mt-4 leading-relaxed">
-                        Our ideal vacation is an <b>all-inclusive package</b>. This is the best option because all flights, hotels, and activities are paid for. We don't need to worry about money or planning. We can just relax and enjoy the wild.
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+                        During this week, you'll experience nature in its purest form, with specialized wildlife tours and moments of absolute tranquility surrounded by the most impressive mountains in North America.
                     </p>
+                    <div class="bg-white p-4 rounded-lg shadow-md mt-4">
+                        <p class="text-base font-semibold text-blue-800">🎁 All-Inclusive Package</p>
+                        <p class="text-sm text-gray-600 mt-2">Guided tours, transportation, luxury accommodation, and unique experiences - everything is included!</p>
+                    </div>
                 </div>
                 <div class="w-full lg:w-1/2 h-64 lg:h-full">
-                    <img src="https://imgs.search.brave.com/js7wjh6zoOMJPQMtjMTurovrBqko6UbfpY37wFNy4MM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTQy/NzY1MTIwL3Bob3Rv/L3Rvcm9udG8tc2t5/bGluZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9ODllMEpz/RFVDUlQyS3RaMk40/aGlJVHNBNzBGRnBx/dFhUM092VFdnYWlh/ST0"
-                         alt="Toronto skyline from the water"
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1757877455/pplx_project_search_images/bf903b608f7e89ad4b3ba621373962e5ce200e42.png"
+                         alt="Hiker in Banff National Park"
                          class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 3 -->
-        <div class="slide w-full h-full hidden" data-slide="2">
+        <!-- SLIDE 3: Day 1 - Arrival -->
+        <div class="slide hidden w-full h-full" data-slide="2">
             <div class="flex flex-col lg:flex-row h-full">
                 <div class="w-full lg:w-1/2 h-64 lg:h-full">
-                    <img src="https://imgs.search.brave.com/5Dan1MgJWc017wkjS1zZ-BYSAu0uvLPshAULsWNbb10/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lbWJh/c3N5c3VpdGVzbmlh/Z2FyYS5jb20vaW1h/Z2VzL2VtYmFzc3kt/c3VpdGVzLWJ5LWhp/bHRvbi1uaWFnYXJh/LWZhbGxzLWZhbGxz/dmlldy1ob3RlbC0x/NjAweDEyMDAuanBn"
-                         alt="Hotel room view of Niagara Falls"
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761315010/pplx_project_search_images/cc3c984c325376053b69eb3e5b00deb1be0e965c.png"
+                         alt="Banff Upper Hot Springs"
                          class="w-full h-full object-cover">
                 </div>
-                <div class="w-full lg:w-1/2 p-10 flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold text-blue-800">Day 1: Arrival at The Falls</h2>
-                    <p class="text-lg text-gray-700 mt-4 leading-relaxed">
-                        We arrive at the Toronto airport and our private, pre-paid car takes us to our luxury hotel in Niagara Falls. We check in to a room with a perfect view of the waterfalls.
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-amber-50 to-orange-50 overflow-y-auto">
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-full inline-block mb-4 text-sm font-bold w-fit">DAY 1</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6">Arrival in Calgary & Transfer to Banff</h2>
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+                        Your adventure begins in Calgary, Alberta. After landing at Calgary International Airport (YYC), a private transfer will take you directly to Banff (approximately 1.5 hours). During the journey, you'll start to glimpse the majestic mountains that will surround you all week.
                     </p>
-                    <ul class="text-lg text-gray-700 mt-4 list-disc list-inside space-y-2">
-                        <li><b>Suggestion:</b> You <b>should</b> watch the Falls at night, as they are lit up with amazing colors.</li>
-                        <li><b>Suggestion:</b> We <b>can</b> order dinner to the room, because it is all included.</li>
+                    <h3 class="text-xl font-bold text-gray-800 mt-4 mb-2">🌆 Afternoon in Banff Town</h3>
+                    <p class="text-base text-gray-700 mb-4">
+                        Explore Banff Avenue with local craft shops, art galleries, and cozy cafes. Perfect for acclimatizing!
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">♨️ Sunset at Banff Upper Hot Springs</h3>
+                    <p class="text-base text-gray-700">
+                        End your first day relaxing in natural hot springs (37-40°C) while contemplating the Rundle and Cascade mountains illuminated by sunset.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Day 2 - Johnston Canyon & Lake Louise -->
+        <div class="slide hidden w-full h-full" data-slide="3">
+            <div class="flex flex-col lg:flex-row h-full">
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-emerald-50 to-teal-50 overflow-y-auto">
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-full inline-block mb-4 text-sm font-bold w-fit">DAY 2</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6">Johnston Canyon & Lake Louise</h2>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🌄 Morning: Johnston Canyon Hike</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        Start early with a spectacular hike through Johnston Canyon. Suspended catwalks take you through the gorge, clinging to rocky walls while the Johnston River flows beneath you. Visit the Lower Falls (1.4 km) and Upper Falls (2.7 km) for breathtaking views.
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">💎 Afternoon: Lake Louise</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        Visit one of the world's most famous lakes! Its vibrant turquoise color comes from "rock flour" produced by melting glaciers.
+                    </p>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>✓ Stroll along the lake shore</li>
+                        <li>✓ Rent a canoe for crystal-clear waters</li>
+                        <li>✓ Visit the historic Fairmont Chateau Lake Louise (1890)</li>
                     </ul>
                 </div>
+                <div class="w-full lg:w-1/2 h-64 lg:h-full flex flex-col">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761315081/pplx_project_search_images/9f3d904256285ea03bc72ec0017aec8687b04657.png"
+                         alt="Johnston Canyon waterfall"
+                         class="w-full h-1/2 object-cover">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1754858348/pplx_project_search_images/5668ac89ba1ed35abb270dde7e0a85a0a5443717.png"
+                         alt="Lake Louise"
+                         class="w-full h-1/2 object-cover">
+                </div>
             </div>
         </div>
 
-        <!-- SLIDE 4 -->
-        <div class="slide w-full h-full hidden" data-slide="3">
+        <!-- SLIDE 5: Day 3 - Moraine Lake -->
+        <div class="slide hidden w-full h-full" data-slide="4">
             <div class="flex flex-col lg:flex-row h-full">
-                <div class="w-full lg:w-1/2 p-10 flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold text-blue-800">Day 2: Boat Tour & Mist</h2>
-                    <p class="text-lg text-gray-700 mt-4 leading-relaxed">
-                        We take the famous "Maid of the Mist" boat tour. Our all-inclusive tickets are ready, so we don't wait in line. The boat takes us right into the mist of the giant waterfall.
+                <div class="w-full lg:w-1/2 h-64 lg:h-full">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761314981/pplx_project_search_images/7fe250524a23e58a370ced446ce7b6b24245d96a.png"
+                         alt="Moraine Lake and Valley of Ten Peaks"
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-cyan-50 to-blue-50 overflow-y-auto">
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-full inline-block mb-4 text-sm font-bold w-fit">DAY 3</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6">Moraine Lake & Valley of Ten Peaks</h2>
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+                        Day three is entirely dedicated to Moraine Lake, located in the Valley of the Ten Peaks. Considered by many as the most beautiful lake in the Canadian Rockies, with a unique deep blue color.
                     </p>
-                    <ul class="text-lg text-gray-700 mt-4 list-disc list-inside space-y-2">
-                        <li><b>Activity:</b> We feel the power and sound of the water. It's an incredible experience.</li>
-                        <li><b>Suggestion:</b> You <b>must</b> wear the poncho they give you. You will get very wet!</li>
-                        <li><b>Suggestion:</b> We <b>could</b> also do the "Journey Behind the Falls" walk.</li>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">📸 The Rockpile Trail: The $20 View</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        A short hike (0.8 km) leads to the famous "Twenty Dollar View" - this scene appeared on the old Canadian $20 bill! From the top of this natural moraine, you'll have a panoramic view of the lake and the ten snow-capped peaks.
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🥾 Optional Activities</h3>
+                    <p class="text-sm text-gray-700">
+                        For adventurers: Eiffel Lake Trail (11.7 km) or Sentinel Pass via Larch Valley (12 km). Or simply relax by the shore, rent a canoe, and enjoy complete peace.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Day 4 - Icefields Parkway -->
+        <div class="slide hidden w-full h-full" data-slide="5">
+            <div class="flex flex-col lg:flex-row h-full">
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-indigo-50 to-purple-50 overflow-y-auto">
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-full inline-block mb-4 text-sm font-bold w-fit">DAY 4</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6">Icefields Parkway - The World's Most Scenic Drive</h2>
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+                        Day four marks the beginning of your journey to Jasper through the Icefields Parkway, considered one of the most spectacular drives on the planet. This 232 km highway connects Banff with Jasper, flanked by glaciers, mountain peaks, waterfalls, and wildlife.
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🏔️ Featured Stops</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 mb-4">
+                        <li><strong>Bow Lake:</strong> Views of Crowfoot Glacier</li>
+                        <li><strong>Peyto Lake:</strong> Famous for its dog shape and brilliant turquoise color</li>
+                        <li><strong>Athabasca Glacier:</strong> Walk on thousands-year-old ice + Glacier Skywalk glass platform</li>
                     </ul>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🦌 Wildlife Spotting</h3>
+                    <p class="text-sm text-gray-700">
+                        Keep your eyes open for moose, bighorn sheep, mountain goats, and bears along the entire route!
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/2 h-64 lg:h-full flex flex-col">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761315010/pplx_project_search_images/4048cf590fd8d622f8c3f648a2c282066439fcfb.png"
+                         alt="Peyto Lake viewpoint"
+                         class="w-full h-1/2 object-cover">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761315041/pplx_project_search_images/5395f47ef443efd8a747932871e7d09d994f2963.png"
+                         alt="Athabasca Glacier"
+                         class="w-full h-1/2 object-cover">
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Day 5 - Wildlife Tour -->
+        <div class="slide hidden w-full h-full" data-slide="6">
+            <div class="flex flex-col lg:flex-row h-full">
+                <div class="w-full lg:w-1/2 h-64 lg:h-full grid grid-cols-2 gap-0">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761314981/pplx_project_search_images/b9c78e8bf4c3a175c56d0d13b8d737ae239c74e7.png"
+                         alt="Grizzly bears in Jasper"
+                         class="w-full h-full object-cover">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761314981/pplx_project_search_images/2f56f93f8ad9ffdcd77c6855c25f5e110a0f888f.png"
+                         alt="Bull elk"
+                         class="w-full h-full object-cover">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761315010/pplx_project_search_images/267d4aac774d71025c44577bf15ded6e02e73fe6.png"
+                         alt="Moose in Jasper"
+                         class="w-full h-full object-cover">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761315081/pplx_project_search_images/bb7b5c435eec830ec823a7224d61c828fff513ed.png"
+                         alt="Bighorn sheep"
+                         class="w-full h-full object-cover">
+                </div>
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-green-50 to-emerald-50 overflow-y-auto">
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-full inline-block mb-4 text-sm font-bold w-fit">DAY 5</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6">Jasper - Wildlife Tour</h2>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🐻 Morning Wildlife Tour</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        Day five begins with a 4-hour guided wildlife tour in Jasper National Park. Departing early morning (best time to spot animals) in a comfortable panoramic bus with expert guides.
+                    </p>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        <strong>Animals you'll likely see:</strong> Grizzly and black bears, moose in marshy areas, elk with impressive antlers, and bighorn sheep on rocky slopes.
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🚡 Afternoon: Jasper SkyTram</h3>
+                    <p class="text-base text-gray-700 leading-relaxed">
+                        Ride the cable car up Whistlers Mountain. From the summit at over 2,200 meters, enjoy 360-degree panoramic views of six mountain ranges and the town of Jasper below. A perfect moment for reflection!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Day 6 - Maligne Lake -->
+        <div class="slide hidden w-full h-full" data-slide="7">
+            <div class="flex flex-col lg:flex-row h-full">
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-sky-50 to-cyan-50 overflow-y-auto">
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-full inline-block mb-4 text-sm font-bold w-fit">DAY 6</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6">Maligne Lake & Spirit Island</h2>
+                    <p class="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+                        Your sixth day is dedicated to exploring the beautiful Maligne Valley, starting with a stop at Medicine Lake, known as the "disappearing lake" due to its unique underground drainage system.
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">⛵ Maligne Lake Cruise to Spirit Island</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        The day's highlight is the 90-minute cruise to Spirit Island on Maligne Lake. Maligne Lake is the largest natural lake in the Canadian Rockies, stretching 22 km between snow-capped mountains and glaciers.
+                    </p>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        Spirit Island is one of Canada's most photographed places. A moment of absolute peace, surrounded by pristine nature and silence interrupted only by water and wind.
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        <strong>Wildlife during cruise:</strong> Black and grizzly bears on shores, Harlequin ducks, bald eagles fishing, moose swimming in bays.
+                    </p>
                 </div>
                 <div class="w-full lg:w-1/2 h-64 lg:h-full">
-                    <img src="https://imgs.search.brave.com/5K2tKKVspHSadm58JzLOaNRaQv8OfMahI3LUmznnpqM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50YWNkbi5jb20v/bWVkaWEvYXR0cmFj/dGlvbnMtc3BsaWNl/LXNwcC02NzR4NDQ2/LzBmLzNiL2Q3Lzgy/LmpwZw"
-                         alt="Boat tour at Niagara Falls"
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1754804238/pplx_project_search_images/d094f635461470486b7195db615e78a7f2c45b36.png"
+                         alt="Spirit Island on Maligne Lake"
                          class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 5 -->
-        <div class="slide w-full h-full hidden" data-slide="4">
+        <!-- SLIDE 9: Day 7 - Return & Farewell -->
+        <div class="slide hidden w-full h-full" data-slide="8">
             <div class="flex flex-col lg:flex-row h-full">
                 <div class="w-full lg:w-1/2 h-64 lg:h-full">
-                    <img src="https://imgs.search.brave.com/0OA6L4xGbBQQBRn19R7npAKArLnd8XOX3Fn0_M6mACY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93aW5l/YmMuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIzLzEyL1Zp/bmV5YXJkLVZpZXdz/LmpwZw"
-                         alt="Quaint street in Niagara-on-the-Lake"
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1757940726/pplx_project_search_images/8725c0e7ed7771146f0e912b5ea81ab6034ee204.png"
+                         alt="Colorful canoes in Banff"
                          class="w-full h-full object-cover">
                 </div>
-                <div class="w-full lg:w-1/2 p-10 flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold text-blue-800">Day 3: Peaceful Town & Wine</h2>
-                    <p class="text-lg text-gray-700 mt-4 leading-relaxed">
-                        After the "wild" power of the falls, we have a "peaceful" day. Our package includes a trip to the beautiful, quiet town of Niagara-on-the-Lake.
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-gradient-to-br from-rose-50 to-pink-50 overflow-y-auto">
+                    <div class="bg-blue-600 text-white px-4 py-2 rounded-full inline-block mb-4 text-sm font-bold w-fit">DAY 7</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6">Return to Banff & Farewell</h2>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🌅 Morning: Final Exploration in Jasper</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        Your last day begins with free time to explore the quieter town of Jasper. Walk short trails near town, visit local shops and art galleries, or enjoy a relaxing breakfast with mountain views.
                     </p>
-                    <ul class="text-lg text-gray-700 mt-4 list-disc list-inside space-y-2">
-                        <li><b>Activity:</b> We visit a famous winery for a wine tasting, which is all pre-paid.</li>
-                        <li><b>Suggestion:</b> We <b>could</b> rent a bicycle to explore the town's cute shops.</li>
-                        <li><b>Suggestion:</b> This <b>would</b> be a very relaxing and beautiful day.</li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">🚗 Return via Icefields Parkway</h3>
+                    <p class="text-base text-gray-700 leading-relaxed mb-4">
+                        The return journey to Calgary (via Banff) lets you enjoy the spectacular Icefields Parkway once more. With the experience of previous days, you'll appreciate every curve, lake, and snowy peak even more.
+                    </p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">💭 Final Reflection</h3>
+                    <p class="text-base text-gray-700 leading-relaxed">
+                        At the end of this week, you'll have experienced the best of Canada: the majesty of its mountains, the richness of its wildlife, and the peace of its crystal-clear lakes. This vacation isn't just a trip - it's a personal transformation in contact with the purest nature.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 6 -->
-        <div class="slide w-full h-full hidden" data-slide="5">
-            <div class="flex flex-col lg:flex-row h-full">
-                <div class="w-full lg:w-1/2 p-10 flex flex-col justify-center">
-                    <h2 class="text-3xl font-bold text-blue-800">Day 4: Spa & Departure</h2>
-                    <p class="text-lg text-gray-700 mt-4 leading-relaxed">
-                        On our last day, we enjoy a final, peaceful breakfast. We use the lodge's spa and pool, which is also part of our all-paid package.
-                    </p>
-                    <ul class="text-lg text-gray-700 mt-4 list-disc list-inside space-y-2">
-                        <li><b>Activity:</b> We relax in the spa and think about our amazing trip.</li>
-                        <li><b>Suggestion:</b> This <b>would</b> be the most relaxing way to end the vacation.</li>
-                        <li><b>Departure:</b> Our private car takes us to the airport. We are completely relaxed.</li>
-                    </ul>
-                </div>
-                <div class="w-full lg:w-1/2 h-64 lg:h-full">
-                    <img src="https://imgs.search.brave.com/DN-qP0x_l0q967jjk4lYi0viWe4NGagPyee_k4iO52s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzE0L2M3/Lzg5LzE0Yzc4OTRj/ZWZmNmQ0ZGE4ZGI3/ZThhZmNkNTYzMGJl/LmpwZw"
-                         alt="Relaxing spa with towels"
-                         class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 7 -->
-        <div class="slide w-full h-full hidden" data-slide="6">
+        <!-- SLIDE 10: Conclusion -->
+        <div class="slide hidden w-full h-full" data-slide="9">
             <div class="relative w-full h-full">
-                <img src="https://imgs.search.brave.com/90F9LIknt-iA1QfBFwTFVlMmpQ5mtjlkCab0FZM2sH0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9j/YW5hZGEtZGF5LWNl/bGVicmF0aW9uLXdp/dGgtbWFwbGUtbGVh/Zi1zeW1ib2xfMjMt/MjE1MTQ0MDUxNy5q/cGc_c2VtdD1haXNf/aHlicmlkJnc9NzQw/JnE9ODA"
-                     alt="Aerial view of Niagara Falls at sunset"
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1761315041/pplx_project_search_images/acf72f8fd1b4e692109c209ea1690d5946c0a018.png"
+                     alt="Black bear family in Canadian wilderness"
                      class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-8">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white">Conclusion: The Best Option</h2>
-                    <p class="text-xl md:text-2xl text-white mt-6 leading-relaxed max-w-2xl">
-                        This all-inclusive trip is the best option because it combines adventure with total peace of mind. We get the "wild" of Canada with the "peaceful" feeling of having everything taken care of.
-                    </p>
-                    <p class="text-2xl md:text-3xl text-teal-300 mt-8 font-semibold">
-                        It is the perfect, stress-free vacation.
-                    </p>
+                <div class="absolute inset-0 overlay-gradient flex flex-col items-center justify-center text-center p-8">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white text-shadow mb-6">Why These Are the Best Vacations</h2>
+                    <div class="max-w-3xl bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
+                        <p class="text-lg text-gray-800 leading-relaxed mb-4">
+                            This week in the Canadian Rockies represents the perfect combination of adventure and tranquility, impressive wildlife and breathtaking landscapes.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 text-left">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="font-bold text-blue-800 mb-2">🎯 Diverse Experiences</p>
+                                <p class="text-sm text-gray-700">From spotting grizzlies to floating in hot springs under the stars</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <p class="font-bold text-green-800 mb-2">🌲 Nature Connection</p>
+                                <p class="text-sm text-gray-700">Reconnect with ancient mountains, glaciers, and wild animals</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <p class="font-bold text-purple-800 mb-2">✅ All-Inclusive</p>
+                                <p class="text-sm text-gray-700">No worries about logistics - just enjoy!</p>
+                            </div>
+                            <div class="bg-amber-50 p-4 rounded-lg">
+                                <p class="font-bold text-amber-800 mb-2">📸 Unforgettable Photos</p>
+                                <p class="text-sm text-gray-700">Every moment is worthy of a postcard</p>
+                            </div>
+                        </div>
+                        <p class="text-2xl font-bold text-blue-800 mt-6">
+                            These are, without a doubt, the best vacations you could plan! 🍁
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- NAVIGATION -->
-        <div class="absolute bottom-0 left-0 w-full p-4 flex justify-between items-center bg-white/80 backdrop-blur-sm border-t border-gray-200">
-            <div id="counter" class="text-gray-600 font-medium px-2">
-                1 / 7
+        <div class="absolute bottom-0 left-0 w-full p-4 flex justify-between items-center bg-white/95 backdrop-blur-sm border-t-2 border-blue-200 z-40">
+            <div id="counter" class="text-gray-700 font-bold px-3 py-1 bg-blue-100 rounded-full text-sm">
+                1 / 10
             </div>
             
-            <div class="flex space-x-2">
+            <div class="flex space-x-3">
                 <button id="prevBtn" 
-                        class="py-2 px-5 rounded-full font-semibold bg-gray-300 hover:bg-gray-400 transition text-gray-800"
-                        aria-label="Diapositiva anterior">
-                    Prev
+                        class="py-2 px-6 rounded-full font-bold bg-gray-300 hover:bg-gray-400 transition-all transform hover:scale-105 text-gray-800 shadow-md"
+                        aria-label="Previous slide">
+                    ← Previous
                 </button>
                 <button id="nextBtn" 
-                        class="py-2 px-5 rounded-full font-semibold bg-blue-600 text-white hover:bg-blue-700 transition"
-                        aria-label="Siguiente diapositiva">
-                    Next
+                        class="py-2 px-6 rounded-full font-bold bg-gradient-to-r from-blue-600 to-teal-600 text-white hover:from-blue-700 hover:to-teal-700 transition-all transform hover:scale-105 shadow-md"
+                        aria-label="Next slide">
+                    Next →
                 </button>
             </div>
         </div>
@@ -187,39 +359,70 @@
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const counter = document.getElementById('counter');
+            const progressBar = document.getElementById('progressBar');
             const totalSlides = slides.length;
             
             let currentSlide = 0;
 
             function showSlide(slideIndex) {
-                slides.forEach(slide => {
-                    slide.classList.add('hidden');
-                    slide.style.opacity = '0';
+                slides.forEach((slide, index) => {
+                    if (index === slideIndex) {
+                        slide.classList.remove('hidden');
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.add('hidden');
+                        slide.classList.remove('active');
+                    }
                 });
-
-                const slideToShow = slides[slideIndex];
-                if (slideToShow) {
-                    slideToShow.classList.remove('hidden');
-                    setTimeout(() => {
-                        slideToShow.style.opacity = '1';
-                    }, 50);
-                }
 
                 currentSlide = slideIndex;
                 counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+                
+                // Update progress bar
+                const progress = ((currentSlide + 1) / totalSlides) * 100;
+                progressBar.style.width = progress + '%';
 
-                prevBtn.classList.toggle('hidden', currentSlide === 0);
-                nextBtn.classList.toggle('hidden', currentSlide === totalSlides - 1);
+                // Show/hide navigation buttons
+                prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+                prevBtn.style.cursor = currentSlide === 0 ? 'not-allowed' : 'pointer';
+                prevBtn.disabled = currentSlide === 0;
+
+                if (currentSlide === totalSlides - 1) {
+                    nextBtn.textContent = '🎉 Finish';
+                    nextBtn.classList.add('from-green-600', 'to-emerald-600');
+                    nextBtn.classList.remove('from-blue-600', 'to-teal-600');
+                } else {
+                    nextBtn.textContent = 'Next →';
+                    nextBtn.classList.remove('from-green-600', 'to-emerald-600');
+                    nextBtn.classList.add('from-blue-600', 'to-teal-600');
+                }
             }
 
             nextBtn.addEventListener('click', () => {
-                if (currentSlide < totalSlides - 1) showSlide(currentSlide + 1);
+                if (currentSlide < totalSlides - 1) {
+                    showSlide(currentSlide + 1);
+                } else {
+                    // On last slide, restart presentation
+                    showSlide(0);
+                }
             });
 
             prevBtn.addEventListener('click', () => {
-                if (currentSlide > 0) showSlide(currentSlide - 1);
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
             });
 
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+                    showSlide(currentSlide + 1);
+                } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            });
+
+            // Initialize first slide
             showSlide(0);
         });
     </script>
